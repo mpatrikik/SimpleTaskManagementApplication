@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="059711a4-40ce-4f2c-9390-51fb5230aaee" name="Changes" comment="" />
+    <list default="true" id="059711a4-40ce-4f2c-9390-51fb5230aaee" name="Changes" comment="add encodings.xml for project encoding configuration" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +13,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/mpatrikik/SimpleTaskManagementApplication.git",
+    "accountId": "f21d97d2-b62c-46ff-9fa2-e753bc5ba1fd"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 2
 }]]></component>
@@ -28,6 +34,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "settings.editor.selected.configurable": "settings.sync",
     "show.migrate.to.gradle.popup": "false"
   }
@@ -40,6 +47,39 @@
       <option name="presentableId" value="Default" />
       <updated>1750089270152</updated>
     </task>
+    <task id="LOCAL-00001" summary="add initial project configuration files and .gitignore">
+      <option name="closed" value="true" />
+      <created>1750089470048</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1750089470048</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add encodings.xml for project encoding configuration">
+      <option name="closed" value="true" />
+      <created>1750089517482</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1750089517482</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add initial project configuration files and .gitignore" />
+    <MESSAGE value="add encodings.xml for project encoding configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="add encodings.xml for project encoding configuration" />
   </component>
 </project>
