@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="059711a4-40ce-4f2c-9390-51fb5230aaee" name="Changes" comment="implement basic task manager functionality just in Main.java with GUI">
+    <list default="true" id="059711a4-40ce-4f2c-9390-51fb5230aaee" name="Changes" comment="add task storage functionality with JSON file handling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TaskStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TaskStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Task.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +63,15 @@
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Main.java" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="SimpleTaskManagementApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="059711a4-40ce-4f2c-9390-51fb5230aaee" name="Changes" comment="" />
@@ -118,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750091858641</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add task storage functionality with JSON file handling">
+      <option name="closed" value="true" />
+      <created>1750148097307</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1750148097308</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,6 +157,7 @@
     <MESSAGE value="update workspace.xml to reflect project configuration and task summaries" />
     <MESSAGE value="add initial Java classes and dependencies in pom.xml" />
     <MESSAGE value="implement basic task manager functionality just in Main.java with GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement basic task manager functionality just in Main.java with GUI" />
+    <MESSAGE value="add task storage functionality with JSON file handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="add task storage functionality with JSON file handling" />
   </component>
 </project>

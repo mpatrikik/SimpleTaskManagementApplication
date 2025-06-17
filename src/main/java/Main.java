@@ -1,6 +1,9 @@
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -33,32 +36,35 @@ public class Main extends Application {
                 tasks.add(new Task(description));
                 TaskStorage.saveTasks(tasks);
                 updateTaskList();
-                taskInput.setText("");
+                taskInput.clear();
             }
         });
 
         deleteButton.setOnAction(e -> {
-            int selectedIdx = taskListView.getSelectionModel().getSelectedIndex();
-            if (selectedIdx >= 0) {
-                tasks.remove(selectedIdx);
+            int selectedId = taskListView.getSelectionModel().getSelectedIndex();
+            if (selectedId >= 0 && selectedId < tasks.size()) {
+                tasks.remove(selectedId);
                 TaskStorage.saveTasks(tasks);
                 updateTaskList();
             }
         });
 
         completeButton.setOnAction(e -> {
-            int selectedIdx = taskListView.getSelectionModel().getSelectedIndex();
-            if (selectedIdx >= 0) {
-                tasks.get(selectedIdx).setCompleted(true);
-                TaskStorage.saveTasks(tasks);
-                updateTaskList();
+            int selectedId = taskListView.getSelectionModel().getSelectedIndex();
+            if (selectedId >= 0 && selectedId < tasks.size()) {
+                Task task = tasks.get(selectedId);
+                if (!task.isCompleted()) {
+                    task.setCompleted(true);
+                    TaskStorage.saveTasks(tasks);
+                    updateTaskList();
+                }
+
             }
         });
 
-        VBox layout = new VBox();
-        layout.setSpacing(10);
+        VBox layout = new VBox(10);
+        layout.setPadding(new Insets(10));
         layout.getChildren().addAll(taskInput, addButton, completeButton, deleteButton, taskListView);
-        layout.setPadding(new javafx.geometry.Insets(10));
 
         Scene scene = new Scene(layout, 400, 400);
         primaryStage.setScene(scene);
