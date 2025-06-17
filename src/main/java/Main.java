@@ -5,6 +5,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.util.List;
@@ -25,8 +26,10 @@ public class Main extends Application {
         taskInput.setText("Enter new task");
 
         Button addButton = new Button("Add");
+        Button saveButton = new Button("Save \uD83D\uDCBE");
+        Button completeButton = new Button("Mark as complete ✓");
+        Button incompleteButton = new Button("Mark as incomplete ❓");
         Button deleteButton = new Button("Delete");
-        Button completeButton = new Button("Mark as complete");
 
         updateTaskList();
 
@@ -40,14 +43,7 @@ public class Main extends Application {
             }
         });
 
-        deleteButton.setOnAction(e -> {
-            int selectedId = taskListView.getSelectionModel().getSelectedIndex();
-            if (selectedId >= 0 && selectedId < tasks.size()) {
-                tasks.remove(selectedId);
-                TaskStorage.saveTasks(tasks);
-                updateTaskList();
-            }
-        });
+        saveButton.setOnAction(e -> TaskStorage.saveTasks(tasks));
 
         completeButton.setOnAction(e -> {
             int selectedId = taskListView.getSelectionModel().getSelectedIndex();
@@ -62,9 +58,33 @@ public class Main extends Application {
             }
         });
 
+        incompleteButton.setOnAction(e -> {
+            int selectedId = taskListView.getSelectionModel().getSelectedIndex();
+            if (selectedId >= 0 && selectedId < tasks.size()) {
+                Task task = tasks.get(selectedId);
+                if (task.isCompleted()) {
+                    task.setCompleted(false);
+                    TaskStorage.saveTasks(tasks);
+                    updateTaskList();
+                }
+            }
+        });
+
+        deleteButton.setOnAction(e -> {
+            int selectedId = taskListView.getSelectionModel().getSelectedIndex();
+            if (selectedId >= 0 && selectedId < tasks.size()) {
+                tasks.remove(selectedId);
+                TaskStorage.saveTasks(tasks);
+                updateTaskList();
+            }
+        });
+
+
+        HBox statusButtons = new HBox(10, completeButton, incompleteButton);
+
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(10));
-        layout.getChildren().addAll(taskInput, addButton, completeButton, deleteButton, taskListView);
+        layout.getChildren().addAll(taskInput, addButton, statusButtons, saveButton, deleteButton, taskListView);
 
         Scene scene = new Scene(layout, 400, 400);
         primaryStage.setScene(scene);
@@ -74,7 +94,7 @@ public class Main extends Application {
     private void updateTaskList() {
         taskListView.getItems().clear();
         for (Task task : tasks) {
-            String label = (task.isCompleted() ? "[X] " : "[ ] ") + task.getDescription();
+            String label = (task.isCompleted() ? "[✓] " : "[❓] ") + task.getDescription();
             taskListView.getItems().add(label);
         }
     }

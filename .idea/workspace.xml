@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="059711a4-40ce-4f2c-9390-51fb5230aaee" name="Changes" comment="Base code structure done, debug needed for running witout errors">
+    <list default="true" id="059711a4-40ce-4f2c-9390-51fb5230aaee" name="Changes" comment="App runs for the first time functions are working, (updated VM options, mavem)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks.json" beforeDir="false" afterPath="$PROJECT_DIR$/tasks.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750150757198</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="App runs for the first time functions are working, (updated VM options, mavem)">
+      <option name="closed" value="true" />
+      <created>1750153769479</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1750153769479</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -172,6 +182,7 @@
     <MESSAGE value="implement basic task manager functionality just in Main.java with GUI" />
     <MESSAGE value="add task storage functionality with JSON file handling" />
     <MESSAGE value="Base code structure done, debug needed for running witout errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Base code structure done, debug needed for running witout errors" />
+    <MESSAGE value="App runs for the first time functions are working, (updated VM options, mavem)" />
+    <option name="LAST_COMMIT_MESSAGE" value="App runs for the first time functions are working, (updated VM options, mavem)" />
   </component>
 </project>
