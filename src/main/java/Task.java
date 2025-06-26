@@ -11,10 +11,6 @@ public class Task {
         this.completed = false;
     }
 
-    public String getId() {
-        return id;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -24,10 +20,6 @@ public class Task {
     }
 
     public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
-
-    public void setIncomplete(boolean completed) {
         this.completed = completed;
     }
 }

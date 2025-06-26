@@ -43,7 +43,13 @@ public class Main extends Application {
             }
         });
 
-        saveButton.setOnAction(e -> TaskStorage.saveTasks(tasks));
+        saveButton.setOnAction(e -> {
+                    TaskStorage.saveTasks(tasks);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "Tasks saved successfully!");
+                    alert.setTitle("Save Confirmation");
+                    alert.setHeaderText(null);
+                    alert.showAndWait();
+                });
 
         completeButton.setOnAction(e -> {
             int selectedId = taskListView.getSelectionModel().getSelectedIndex();

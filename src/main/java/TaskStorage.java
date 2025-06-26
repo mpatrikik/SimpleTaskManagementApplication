@@ -1,4 +1,5 @@
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class TaskStorage {
     private static final String FILE_NAME = "tasks.json";
-    private static final Gson gson = new Gson();
+    private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     static {
         File file = new File(FILE_NAME);
