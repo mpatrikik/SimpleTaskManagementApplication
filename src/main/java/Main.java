@@ -27,7 +27,7 @@ public class Main extends Application {
 
         Button addButton = new Button("Add");
         Button saveButton = new Button("Save \uD83D\uDCBE");
-        Button completeButton = new Button("Mark as complete ✓");
+        Button completeButton = new Button("Mark as completed ✓");
         Button incompleteButton = new Button("Mark as incomplete ❓");
         Button deleteButton = new Button("Delete");
 
