@@ -14,6 +14,8 @@ public class Main extends Application {
     private List<Task> tasks = TaskStorage.loadTasks();
     private ListView<String> taskListView = new ListView<>();
 
+    private ComboBox<String> filterBox = new ComboBox<>();
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -24,6 +26,10 @@ public class Main extends Application {
 
         TextField taskInput = new TextField();
         taskInput.setText("Enter new task");
+
+        filterBox.getItems().addAll("All", "Completed", "Incomplete");
+        filterBox.setValue("All");
+        filterBox.setOnAction(e -> updateTaskList());
 
         Button addButton = new Button("Add");
         Button saveButton = new Button("Save \uD83D\uDCBE");
@@ -86,11 +92,12 @@ public class Main extends Application {
         });
 
 
+        HBox ListingAndFilter = new HBox(10, addButton, filterBox);
         HBox statusButtons = new HBox(10, completeButton, incompleteButton);
 
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(10));
-        layout.getChildren().addAll(taskInput, addButton, statusButtons, saveButton, deleteButton, taskListView);
+        layout.getChildren().addAll(taskInput, ListingAndFilter, statusButtons, saveButton, deleteButton, taskListView);
 
         Scene scene = new Scene(layout, 400, 400);
         primaryStage.setScene(scene);
@@ -99,9 +106,21 @@ public class Main extends Application {
 
     private void updateTaskList() {
         taskListView.getItems().clear();
+        String filter = filterBox.getValue();
         for (Task task : tasks) {
-            String label = (task.isCompleted() ? "[✓] " : "[❓] ") + task.getDescription();
-            taskListView.getItems().add(label);
+            boolean shouldShow = switch (filter) {
+                case "Completed" -> task.isCompleted();
+                case "Incomplete" -> !task.isCompleted();
+                default -> true; // "All"
+            };
+
+            if (shouldShow) {
+                String displayText = task.getDescription() + (task.isCompleted() ? " ✓" : " ❓");
+                taskListView.getItems().add(displayText);
+            }
         }
     }
+
+
+
 }
