@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Main extends Application {
     private List<Task> tasks = TaskStorage.loadTasks();
-    private ListView<String> taskListView = new ListView<>();
+    private ListView<Task> taskListView = new ListView<>();
 
     private ComboBox<String> filterBox = new ComboBox<>();
 
@@ -58,37 +58,30 @@ public class Main extends Application {
                 });
 
         completeButton.setOnAction(e -> {
-            int selectedId = taskListView.getSelectionModel().getSelectedIndex();
-            if (selectedId >= 0 && selectedId < tasks.size()) {
-                Task task = tasks.get(selectedId);
-                if (!task.isCompleted()) {
+            for (Task task : tasks) {
+                if (task.isSelected() && !task.isCompleted()) {
                     task.setCompleted(true);
-                    TaskStorage.saveTasks(tasks);
-                    updateTaskList();
                 }
-
             }
+            TaskStorage.saveTasks(tasks);
+            updateTaskList();
         });
 
         incompleteButton.setOnAction(e -> {
-            int selectedId = taskListView.getSelectionModel().getSelectedIndex();
-            if (selectedId >= 0 && selectedId < tasks.size()) {
-                Task task = tasks.get(selectedId);
-                if (task.isCompleted()) {
+            for (Task task : tasks) {
+                if (task.isSelected() && task.isCompleted()) {
                     task.setCompleted(false);
-                    TaskStorage.saveTasks(tasks);
-                    updateTaskList();
                 }
             }
+            TaskStorage.saveTasks(tasks);
+            updateTaskList();
         });
 
+
         deleteButton.setOnAction(e -> {
-            int selectedId = taskListView.getSelectionModel().getSelectedIndex();
-            if (selectedId >= 0 && selectedId < tasks.size()) {
-                tasks.remove(selectedId);
-                TaskStorage.saveTasks(tasks);
-                updateTaskList();
-            }
+            tasks.removeIf(Task::isSelected);
+            TaskStorage.saveTasks(tasks);
+            updateTaskList();
         });
 
 
@@ -102,21 +95,47 @@ public class Main extends Application {
         Scene scene = new Scene(layout, 400, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        taskListView.setCellFactory(lv -> new ListCell<>() {
+            private final CheckBox checkBox = new CheckBox();
+            {
+                checkBox.setOnAction(e -> {
+                    Task task = getItem();
+                    if (task != null) {
+                        task.setSelected(checkBox.isSelected());
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(Task task, boolean empty) {
+                super.updateItem(task, empty);
+                if (empty || task == null) {
+                    setText(null);
+                    setGraphic(null);
+                } else {
+                    checkBox.setSelected(task.isSelected());
+                    checkBox.setText(task.getDescription() + (task.isCompleted() ? " ✓" : " ❓"));
+                    setGraphic(checkBox);
+                }
+            }
+        });
     }
 
     private void updateTaskList() {
         taskListView.getItems().clear();
         String filter = filterBox.getValue();
+
         for (Task task : tasks) {
             boolean shouldShow = switch (filter) {
                 case "Completed" -> task.isCompleted();
                 case "Incomplete" -> !task.isCompleted();
-                default -> true; // "All"
+                default -> true;
             };
 
             if (shouldShow) {
                 String displayText = task.getDescription() + (task.isCompleted() ? " ✓" : " ❓");
-                taskListView.getItems().add(displayText);
+                taskListView.getItems().add(task);
             }
         }
     }

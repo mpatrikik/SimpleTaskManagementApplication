@@ -4,6 +4,7 @@ public class Task {
     private String id;
     private String description;
     private boolean completed;
+    private transient boolean selected;
 
     public Task(String description) {
         this.id = UUID.randomUUID().toString();
@@ -21,5 +22,13 @@ public class Task {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }

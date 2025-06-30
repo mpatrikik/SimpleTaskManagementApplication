@@ -5,16 +5,6 @@
     "completed": true
   },
   {
-    "id": "4df3f6b5-d48f-4730-8c76-29c7d345ecfc",
-    "description": "2.",
-    "completed": true
-  },
-  {
-    "id": "0aec7bd3-2a8e-430a-94f7-9f354d4fa353",
-    "description": "3",
-    "completed": true
-  },
-  {
     "id": "f864fcef-2781-4715-af2f-7d3461b8ede4",
     "description": "4.",
     "completed": false
@@ -22,16 +12,6 @@
   {
     "id": "a31c472a-02fa-45c0-90ec-b21e516b3851",
     "description": "5.",
-    "completed": false
-  },
-  {
-    "id": "00408e69-2d0e-4c88-9068-7e88d7aba89b",
-    "description": "6.",
-    "completed": true
-  },
-  {
-    "id": "781e343c-5e23-4556-b4ec-8585be0da4c6",
-    "description": "7.",
     "completed": false
   },
   {
@@ -52,11 +32,6 @@
   {
     "id": "26be6180-d9d4-44ac-8fb9-7413a2616bb3",
     "description": "11.",
-    "completed": false
-  },
-  {
-    "id": "c2edf516-41cf-4469-a960-e409aa621c01",
-    "description": "12.",
     "completed": false
   }
 ]
