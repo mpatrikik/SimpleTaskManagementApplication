@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="059711a4-40ce-4f2c-9390-51fb5230aaee" name="Changes" comment="refactor task management to support selection and batch operations">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="059711a4-40ce-4f2c-9390-51fb5230aaee" name="Changes" comment="changing place of tasks.json">
+      <change afterPath="$PROJECT_DIR$/src/main/java/TaskService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TaskStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TaskStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tasks.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tasks.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751296100178</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="changing place of tasks.json">
+      <option name="closed" value="true" />
+      <created>1752427726948</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1752427726948</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -269,6 +277,7 @@
     <MESSAGE value="First working prototype" />
     <MESSAGE value="deeited .json file to more readable structure" />
     <MESSAGE value="refactor task management to support selection and batch operations" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor task management to support selection and batch operations" />
+    <MESSAGE value="changing place of tasks.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="changing place of tasks.json" />
   </component>
 </project>

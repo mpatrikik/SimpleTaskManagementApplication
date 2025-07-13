@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.util.List;
 
 public class Main extends Application {
-    private List<Task> tasks = TaskStorage.loadTasks();
+    private final TaskService taskService = new TaskService();
     private ListView<Task> taskListView = new ListView<>();
     private ComboBox<String> filterBox = new ComboBox<>();
 
@@ -24,14 +24,13 @@ public class Main extends Application {
         primaryStage.setTitle("Simple Task Manager");
 
         TextField taskInput = new TextField();
-        taskInput.setText("Enter new task");
+        taskInput.setPromptText("Enter new task");
 
         filterBox.getItems().addAll("All", "Completed", "Incomplete");
         filterBox.setValue("All");
         filterBox.setOnAction(e -> updateTaskList());
 
         Button addButton = new Button("Add");
-        Button saveButton = new Button("Save \uD83D\uDCBE");
         Button completeButton = new Button("Mark as completed ✓");
         Button incompleteButton = new Button("Mark as incomplete ❓");
         Button deleteButton = new Button("Delete");
@@ -41,45 +40,41 @@ public class Main extends Application {
         addButton.setOnAction(e -> {
             String description = taskInput.getText().trim();
             if (!description.isEmpty()) {
-                tasks.add(new Task(description));
-                TaskStorage.saveTasks(tasks);
+                taskService.addTask(new Task(description));
                 updateTaskList();
                 taskInput.clear();
             }
         });
 
-        saveButton.setOnAction(e -> {
-                    TaskStorage.saveTasks(tasks);
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "Tasks saved successfully!");
-                    alert.setTitle("Save Confirmation");
-                    alert.setHeaderText(null);
-                    alert.showAndWait();
-                });
-
         completeButton.setOnAction(e -> {
-            for (Task task : tasks) {
+            for (Task task : taskService.getAllTasks()) {
                 if (task.isSelected() && !task.isCompleted()) {
                     task.setCompleted(true);
                 }
             }
-            TaskStorage.saveTasks(tasks);
+            taskService.saveTasks();
             updateTaskList();
         });
 
         incompleteButton.setOnAction(e -> {
-            for (Task task : tasks) {
+            updateTaskList();
+            for (Task task : taskService.getAllTasks()) {
                 if (task.isSelected() && task.isCompleted()) {
                     task.setCompleted(false);
                 }
             }
-            TaskStorage.saveTasks(tasks);
+            taskService.saveTasks();
             updateTaskList();
         });
 
 
         deleteButton.setOnAction(e -> {
-            tasks.removeIf(Task::isSelected);
-            TaskStorage.saveTasks(tasks);
+            for (Task task : taskService.getAllTasks()) {
+                if (task.isSelected()) {
+                    taskService.deleteTask(task.getId());
+                }
+            }
+            taskService.saveTasks();
             updateTaskList();
         });
 
@@ -89,7 +84,7 @@ public class Main extends Application {
 
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(10));
-        layout.getChildren().addAll(taskInput, ListingAndFilter, statusButtons, saveButton, deleteButton, taskListView);
+        layout.getChildren().addAll(taskInput, ListingAndFilter, statusButtons, deleteButton, taskListView);
 
         Scene scene = new Scene(layout, 400, 500);
         primaryStage.setScene(scene);
@@ -125,7 +120,7 @@ public class Main extends Application {
         taskListView.getItems().clear();
         String filter = filterBox.getValue();
 
-        for (Task task : tasks) {
+        for (Task task : taskService.getAllTasks()) {
             boolean shouldShow = switch (filter) {
                 case "Completed" -> task.isCompleted();
                 case "Incomplete" -> !task.isCompleted();

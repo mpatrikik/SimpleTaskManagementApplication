@@ -7,6 +7,11 @@
   {
     "id": "e2798b03-216f-4667-b4dd-c865addf5743",
     "description": "2",
+    "completed": false
+  },
+  {
+    "id": "322111bd-61c8-4c70-97ab-9a42ad176ad9",
+    "description": "4",
     "completed": true
   }
 ]
