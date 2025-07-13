@@ -1,5 +1,9 @@
 # 🧪 One-Week Junior Developer Trial Project Scope: Simple Task Management Application
 
+
+## ✅ Needed to be done:
+External packages, gitignore always needed, taskService layer and test for that, exception handling important
+
 ---
 
 This is an excellent idea for helping your junior developer explore different paths!  

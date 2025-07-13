@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskStorage {
-    private static final String FILE_NAME = "tasks.json";
+    private static final String FILE_NAME = "src/main/resources/tasks.json";
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     static {

@@ -13,7 +13,6 @@ import java.util.List;
 public class Main extends Application {
     private List<Task> tasks = TaskStorage.loadTasks();
     private ListView<Task> taskListView = new ListView<>();
-
     private ComboBox<String> filterBox = new ComboBox<>();
 
     public static void main(String[] args) {
@@ -92,7 +91,7 @@ public class Main extends Application {
         layout.setPadding(new Insets(10));
         layout.getChildren().addAll(taskInput, ListingAndFilter, statusButtons, saveButton, deleteButton, taskListView);
 
-        Scene scene = new Scene(layout, 400, 400);
+        Scene scene = new Scene(layout, 400, 500);
         primaryStage.setScene(scene);
         primaryStage.show();
 
