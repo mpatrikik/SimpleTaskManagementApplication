@@ -39,10 +39,16 @@ public class Main extends Application {
 
         addButton.setOnAction(e -> {
             String description = taskInput.getText().trim();
-            if (!description.isEmpty()) {
+            try {
                 taskService.addTask(new Task(description));
                 updateTaskList();
                 taskInput.clear();
+            } catch (IllegalArgumentException ex) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Input Required");
+                alert.setHeaderText(null);
+                alert.setContentText("Please fill in the task description before adding.");
+                alert.showAndWait();
             }
         });
 

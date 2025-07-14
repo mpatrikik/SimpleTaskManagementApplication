@@ -14,6 +14,9 @@ public class TaskService {
     }
 
     public void addTask(Task task) {
+        if (task == null || task.getDescription() == null || task.getDescription().trim().isEmpty()) {
+            throw new IllegalArgumentException("Task description cannot be empty");
+        }
         tasks.add(task);
         TaskStorage.saveTasks(tasks);
     }
