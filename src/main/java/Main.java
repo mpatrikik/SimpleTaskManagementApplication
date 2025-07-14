@@ -8,6 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main extends Application {
@@ -75,10 +76,14 @@ public class Main extends Application {
 
 
         deleteButton.setOnAction(e -> {
+            List<String> toDelete = new ArrayList<>();
             for (Task task : taskService.getAllTasks()) {
                 if (task.isSelected()) {
                     taskService.deleteTask(task.getId());
                 }
+            }
+            for (String id : toDelete) {
+                taskService.deleteTask(id);
             }
             taskService.saveTasks();
             updateTaskList();
