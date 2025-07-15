@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="059711a4-40ce-4f2c-9390-51fb5230aaee" name="Changes" comment="refactor delete task functionality to support batch deletion">
+    <list default="true" id="059711a4-40ce-4f2c-9390-51fb5230aaee" name="Changes" comment="Delet and every core function works as it should be">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tasks.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tasks.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752520441448</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Delet and every core function works as it should be">
+      <option name="closed" value="true" />
+      <created>1752584120134</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1752584120134</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -314,6 +322,7 @@
     <MESSAGE value="README.md updated" />
     <MESSAGE value="add exception handling for task description input and handle empty submissions" />
     <MESSAGE value="refactor delete task functionality to support batch deletion" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor delete task functionality to support batch deletion" />
+    <MESSAGE value="Delet and every core function works as it should be" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delet and every core function works as it should be" />
   </component>
 </project>

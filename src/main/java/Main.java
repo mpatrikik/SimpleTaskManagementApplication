@@ -54,6 +54,10 @@ public class Main extends Application {
         });
 
         completeButton.setOnAction(e -> {
+            if (!isAnyTaskSelected()) {
+                showNoSelectionAlert();
+                return;
+            }
             for (Task task : taskService.getAllTasks()) {
                 if (task.isSelected() && !task.isCompleted()) {
                     task.setCompleted(true);
@@ -64,6 +68,10 @@ public class Main extends Application {
         });
 
         incompleteButton.setOnAction(e -> {
+            if (!isAnyTaskSelected()) {
+                showNoSelectionAlert();
+                return;
+            }
             updateTaskList();
             for (Task task : taskService.getAllTasks()) {
                 if (task.isSelected() && task.isCompleted()) {
@@ -76,6 +84,10 @@ public class Main extends Application {
 
 
         deleteButton.setOnAction(e -> {
+            if (!isAnyTaskSelected()) {
+                showNoSelectionAlert();
+                return;
+            }
             List<Task> toDelete = new ArrayList<>();
             for (Task task : taskService.getAllTasks()) {
                 if (task.isSelected()) {
@@ -125,6 +137,25 @@ public class Main extends Application {
                 }
             }
         });
+    }
+
+
+
+    private boolean isAnyTaskSelected() {
+        for (Task task : taskService.getAllTasks()) {
+            if (task.isSelected()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void showNoSelectionAlert() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("No Task Selected");
+        alert.setHeaderText(null);
+        alert.setContentText("Please select at least one task first.");
+        alert.showAndWait();
     }
 
     private void updateTaskList() {
