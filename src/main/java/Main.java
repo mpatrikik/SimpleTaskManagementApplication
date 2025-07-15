@@ -76,14 +76,14 @@ public class Main extends Application {
 
 
         deleteButton.setOnAction(e -> {
-            List<String> toDelete = new ArrayList<>();
+            List<Task> toDelete = new ArrayList<>();
             for (Task task : taskService.getAllTasks()) {
                 if (task.isSelected()) {
-                    taskService.deleteTask(task.getId());
+                    toDelete.add(task);
                 }
             }
-            for (String id : toDelete) {
-                taskService.deleteTask(id);
+            for (Task task : toDelete) {
+                taskService.deleteTask(task.getId());
             }
             taskService.saveTasks();
             updateTaskList();
