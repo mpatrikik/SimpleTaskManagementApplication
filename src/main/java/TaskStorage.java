@@ -11,8 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskStorage {
-    private static final String FILE_NAME = "src/main/resources/tasks.json";
+    private static String FILE_NAME = "src/main/resources/tasks.json";
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+    public static void setFileName(String fileName) {
+            FILE_NAME = fileName;
+    }
 
     static {
         File file = new File(FILE_NAME);
