@@ -5,7 +5,7 @@
 - External packages ✔️
 - gitignore always needed ✔️
 - TaskService layer ✔️
-- Unit test(s) for TaskService 
+- Unit test(s) for TaskService ✔️
 - Base exception handlings ✔️
 
 ---
